@@ -12,11 +12,16 @@ public class Categorie implements Serializable {
 
 		// Constructeur
 
-
+		@Override
+		public String toString() {
+			return "Categorie [id=" + id + ", libelle=" + libelle + "]";
+		}
 		public Categorie(int id, String libelle) {
 			this.id = id;
 			this.libelle = libelle;
 		}
+
+
 
 		/**
 		 * 
@@ -58,11 +63,6 @@ public class Categorie implements Serializable {
 		 */
 		public void setLibelle(String libelle) {
 			this.libelle = libelle;
-		}
-
-
-		@Override
-		public String toString() {
-			return "Categorie [id=" + id + ", libelle=" + libelle + "]";
+	
 		}
 	}

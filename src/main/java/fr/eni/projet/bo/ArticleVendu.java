@@ -20,10 +20,19 @@ public class ArticleVendu implements Serializable {
 	// CONSTRUCTEURS
 
 
+/**
+* Méthode ToString 
+*/
+@Override
+public String toString() {
+return "ArticleVendu [id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebutEncheres="
+		+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
+		+ ", prixVente=" + prixVente + ", categorie=" + categorie + ", utilisateur=" + utilisateur + ", etatVente="
+		+ ", Retrait=" + Retrait + "]";
+}
 	public ArticleVendu() {
 		
 	}
-
 	
 	public ArticleVendu(String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			int miseAPrix, Utilisateur utilisateur, Categorie categorie) {
@@ -38,7 +47,6 @@ public class ArticleVendu implements Serializable {
 		this.Retrait = utilisateur.Retrait();
 		
 	}
-
 	public ArticleVendu(String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
 			int miseAPrix, int prixVente, Categorie categorie, Utilisateur utilisateur, Retrait Retrait) {
 		this(nom,description,dateDebutEncheres,dateFinEncheres,miseAPrix,utilisateur,categorie);
@@ -143,19 +151,6 @@ public class ArticleVendu implements Serializable {
 
 	public void setRetrait(Retrait Retrait) {
 		this.Retrait = Retrait;
+	
 	}
-
-
-
-	/**
-	 * Méthode ToString 
-	 */
-	@Override
-	public String toString() {
-		return "ArticleVendu [id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebutEncheres="
-				+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
-				+ ", prixVente=" + prixVente + ", categorie=" + categorie + ", utilisateur=" + utilisateur + ", etatVente="
-				+ ", Retrait=" + Retrait + "]";
-	}
-
 }

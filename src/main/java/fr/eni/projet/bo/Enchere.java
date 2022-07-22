@@ -20,6 +20,12 @@ public class Enchere implements Serializable{
 		super();
 	}
 	
+	// ToString
+	@Override
+	public String toString() {
+		return "Enchere [date=" + date + ", montant=" + montantEnchere + ", articleVendu=" + articleVendu
+				+ ", encherisseur=" + encherisseur + "]";
+	}
 	public Enchere(LocalDateTime date,int montantEnchere, ArticleVendu articleVendu, Utilisateur encherisseur) {
 
 		this.date = date;
@@ -60,10 +66,4 @@ public class Enchere implements Serializable{
 		this.encherisseur = encherisseur;
 	}
 	
-	// ToString
-	@Override
-	public String toString() {
-		return "Enchere [date=" + date + ", montant=" + montantEnchere + ", articleVendu=" + articleVendu
-				+ ", encherisseur=" + encherisseur + "]";
-	}
 }

@@ -27,6 +27,23 @@ public class Utilisateur implements Serializable {
 	     */
 	    public Utilisateur() {
 	    }
+	    @Override
+	    public String toString() {
+	        return "Utilisateur{" +
+	                "noUtilisateur=" + noUtilisateur +
+	                ", pseudo='" + pseudo + '\'' +
+	                ", nom='" + nom + '\'' +
+	                ", prenom='" + prenom + '\'' +
+	                ", email='" + email + '\'' +
+	                ", telephone='" + telephone + '\'' +
+	                ", rue='" + rue + '\'' +
+	                ", codePostal='" + codePostal + '\'' +
+	                ", ville='" + ville + '\'' +
+	                ", motDePasse='" + motDePasse + '\'' +
+	                ", credit=" + credit +
+	                ", administrateur=" + administrateur +
+	                '}';
+	    }
 
 	    /**
 	     * Constructeur comportant tous les champs 
@@ -158,7 +175,7 @@ public class Utilisateur implements Serializable {
 	        return administrateur;
 	    }
 
-	    public void setAdministrateur(boolean administrateur) {
+	    public void setisAdministrateur(boolean administrateur) {
 	        this.administrateur = administrateur;
 	    }
 
@@ -168,23 +185,4 @@ public class Utilisateur implements Serializable {
 			return new Retrait(this.rue, this.codePostal, this.ville);
 		}
 		
-	    
-	    @Override
-	    public String toString() {
-	        return "Utilisateur{" +
-	                "noUtilisateur=" + noUtilisateur +
-	                ", pseudo='" + pseudo + '\'' +
-	                ", nom='" + nom + '\'' +
-	                ", prenom='" + prenom + '\'' +
-	                ", email='" + email + '\'' +
-	                ", telephone='" + telephone + '\'' +
-	                ", rue='" + rue + '\'' +
-	                ", codePostal='" + codePostal + '\'' +
-	                ", ville='" + ville + '\'' +
-	                ", motDePasse='" + motDePasse + '\'' +
-	                ", credit=" + credit +
-	                ", administrateur=" + administrateur +
-	                '}';
-	    }
-
-	}
+}	

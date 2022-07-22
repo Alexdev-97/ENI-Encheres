@@ -20,6 +20,12 @@ public class Retrait implements Serializable {
 		super();
 	}
 
+	// METHODE TO STRING
+	@Override
+	public String toString() {
+		return "Retrait [id=" + id + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville + "]";
+	}
+
 	public Retrait(int id, String rue, String codePostal, String ville) {
 		super();
 		this.id = id;
@@ -76,12 +82,5 @@ public class Retrait implements Serializable {
     public void setRetrait(boolean retrait) {
         this.retrait = retrait;
     }
-
-
-	// METHODE TO STRING
-	@Override
-	public String toString() {
-		return "Retrait [id=" + id + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville + "]";
-	}
 
 }
