@@ -26,13 +26,10 @@
     <!--
     <Manager pathname="" />
     -->
-    <Resource
-		name="jdbc/pool_cnx"
-		
+    <Resource name="jdbc/pool_cnx"
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		type="javax.sql.DataSource"
-		
-		url="jdbc:sqlserver://localhost;databasename=Eni_encheres"
+		url="jdbc:sqlserver://localhost:1433;databaseName=Eni_encheres;integratedSecurity=false;encrypt=true;trustServerCertificate=true"
 		username="sa"
 		password="Pa$$w0rd"
 		
