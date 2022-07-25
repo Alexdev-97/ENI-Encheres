@@ -18,8 +18,8 @@ public class DAOFactory {
 		return new EnchereDAOJdbcImpl();
 	}
 
-	public static ArticleVenduDAO getArticleDAO() {
-		return new ArticleVenduDAOJdbcImpl();
+	public static ArticleDAO getArticleDAO() {
+		return new ArticleDAOjdbcImpl();
 	}
 
 }

@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import fr.eni.projet.bo.Utilisateur;
 import fr.eni.projet.dal.DALException;
-import fr.eni.projet.bo.ArticleVendu;
+import fr.eni.projet.bo.Article;
 import fr.eni.projet.bo.Enchere;
 
 public interface EnchereDAO {

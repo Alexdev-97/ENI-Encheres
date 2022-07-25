@@ -3,7 +3,7 @@ package fr.eni.projet.bo;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class ArticleVendu implements Serializable {
+public class Article implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int id;
@@ -15,7 +15,7 @@ public class ArticleVendu implements Serializable {
 	private int prixVente;
 	private Categorie categorie;
 	private Utilisateur utilisateur;
-	private Retrait Retrait;
+	private Retrait retrait;
 
 	// CONSTRUCTEURS
 
@@ -25,17 +25,14 @@ public class ArticleVendu implements Serializable {
 */
 @Override
 public String toString() {
-return "ArticleVendu [id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebutEncheres="
+return "Article [id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebutEncheres="
 		+ dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix=" + miseAPrix
-		+ ", prixVente=" + prixVente + ", categorie=" + categorie + ", utilisateur=" + utilisateur + ", etatVente="
-		+ ", Retrait=" + Retrait + "]";
+		+ ", prixVente=" + prixVente + ", categorie=" + categorie + ", utilisateur=" + utilisateur +
+		", Retrait=" + retrait + "]";
 }
-	public ArticleVendu() {
-		
-	}
 	
-	public ArticleVendu(String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			int miseAPrix, Utilisateur utilisateur, Categorie categorie) {
+	public Article(String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
+			int miseAPrix, int prixVente,Categorie categorie, Utilisateur utilisateur,Retrait retrait) {
 		super();
 		this.nom = nom;
 		this.description = description;
@@ -44,41 +41,14 @@ return "ArticleVendu [id=" + id + ", nom=" + nom + ", description=" + descriptio
 		this.miseAPrix = miseAPrix;
 		this.categorie = categorie;
 		this.utilisateur = utilisateur;
-		this.Retrait = utilisateur.Retrait();
+		this.retrait = utilisateur.Retrait();
 		
-	}
-	public ArticleVendu(String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			int miseAPrix, int prixVente, Categorie categorie, Utilisateur utilisateur, Retrait Retrait) {
-		this(nom,description,dateDebutEncheres,dateFinEncheres,miseAPrix,utilisateur,categorie);
-		this.Retrait=Retrait;
-		
-	}
-	
-	
-
-	public ArticleVendu(String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			int miseAPrix, int prixVente, Categorie categorie, Utilisateur utilisateur) {
-		this(nom,description,dateDebutEncheres,dateFinEncheres,miseAPrix,prixVente,categorie,utilisateur,utilisateur.Retrait());
-			
-	}
-	
-	
-
-	public ArticleVendu(int id, String nom, String description, LocalDate dateDebutEncheres, LocalDate dateFinEncheres,
-			int miseAPrix, int prixVente, Categorie categorie, Utilisateur utilisateur, Retrait Retrait) {
-		this(nom, description, dateDebutEncheres, dateFinEncheres, miseAPrix, prixVente, categorie, utilisateur, Retrait);
-		this.id = id;
-
 	}
 
 
 	// GETTERS AND SETTERS
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getNom() {
@@ -146,11 +116,11 @@ return "ArticleVendu [id=" + id + ", nom=" + nom + ", description=" + descriptio
 	}
 
 	public Retrait getRetrait() {
-		return Retrait;
+		return retrait;
 	}
 
 	public void setRetrait(Retrait Retrait) {
-		this.Retrait = Retrait;
+		this.retrait = Retrait;
 	
 	}
 }

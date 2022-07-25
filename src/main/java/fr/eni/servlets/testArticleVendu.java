@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,15 +15,16 @@ import fr.eni.projet.dal.ConnectionProvider;
 /**
  * Servlet implementation class TestPoolConnexion
  */
-public class TestPoolConnexion extends HttpServlet {
+public class testArticleVendu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public TestPoolConnexion() {
+	public testArticleVendu() {
 		super();
 		// TODO Auto-generated constructor stub
+		System.out.println("Je suis lancé, tu es prêt ?");
 	}
 
 	/**
@@ -48,10 +50,13 @@ public class TestPoolConnexion extends HttpServlet {
 				//e.printStackTrace();
 			}
 		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/connexion.jsp");
+		rd.forward(request, response);
+		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-
 	}
 
 }

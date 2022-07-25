@@ -1,93 +1,57 @@
-package fr.eni.projet.dal;
+package fr.eni.encheres.dal;
 
-
+import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
-import fr.eni.projet.bo.Utilisateur;
+import fr.eni.encheres.bo.Utilisateur;
 
 public interface UtilisateurDAO {
-	
-	/**
-	 * Selectionner tous les pseudos
-	 * @return List<String>
-	 * @throws DALException
-	 */
-	public List<String> selectAllPseudos() throws DALException;
-
 
 	/**
-	 * Selectionner un utilisateur par son id
-	 * @param id
-	 * @return Utilisateur
-	 * @throws DALException
-	 */	
-	public Utilisateur selectById(int id) throws DALException;
-	
+	 * methode permettant d'inserer un nouvel utilisteur en BDD
+	 * @param utilisateur une instance d'utilisateur 
+	 * @throws DALException propagation d'une erreur de type DALException
+	 */
+	void insertUtilisateur (Utilisateur utilisateur) throws DALException;
 	
 	/**
-	 * Selectionner tous les utlisateurs
-	 * @return List<Utilisateur>
+	 * Modifie les informations de profil d'un utilisateur en base de donnee
+	 * @throws DALException 
+	 */
+	void updateUtilisateur (Utilisateur utilisateur) throws DALException; 
+	
+	/**
+	 * Recupere tous les utilisateurs dans la base de donnee
+	 * @return List contenant tous les utilisateurs
+	 * @throws DALException 
+	 */
+	List<Utilisateur> getAllUtil() throws DALException;
+	
+	/**
+	 * Recupere un utilisateur en BDD par son ID(no_utilisateur)
+	 * @return utilisateur
 	 * @throws DALException
 	 */
-	public List<Utilisateur> selectAll() throws DALException;
-	
+	Utilisateur getById(int id) throws DALException;
+
 	/**
-	 * Inserer un nouvel utilisateur
-	 * @param utilisateur
+	 * Met a jour les credits des acheteurs quand une enchere est faite
 	 * @throws DALException
 	 */
-	public void insert(Utilisateur utilisateur) throws DALException;
-	
+	void updateCredit(int argent) throws DALException;
+
 	/**
-	 * Supprimer un utilisateur
-	 * @param utilisateur
+	 * Supprime un utilisateur (choix de l'utilisateur en cours de supprimer son profil)
 	 * @throws DALException
 	 */
-	public void delete(Utilisateur utilisateur) throws DALException;
+	void deleteUtilisateur(Utilisateur user) throws DALException;
 	
 	/**
-	 * Modifier un utilisateur
-	 * @param utilisateur
-	 * @throws DALException
-	 */
-	public void update(Utilisateur utilisateur) throws DALException;
-	
-	/**
-	 * Retourne une HashMap de tous les <pseudo, mdp>
+	 * Permet � un utilisateur de se connecter
 	 * @return
 	 * @throws DALException
+	 * @throws SQLException
 	 */
-	public Map<String, String> selectAllIdentifiants() throws DALException;
-
-	/**
-	 * Retourne une HashMap de tous les <pseudo,[mdp,email]>
-	 * @return
-	 * @throws DALException
-	 */
-	public Map<String, String[]> selectAllIdentifiantsUniques() throws DALException;
-	
-	/**
-	 * Retourne un objet utilisateur en fonction du pseudo
-	 * @param pseudo
-	 * @return Utilisateur
-	 * @throws DALException
-	 */
-	public Utilisateur selectByPseudo(String pseudo) throws DALException;
-
-	/**
-	 * Retourne une HashMap de tous les <[pseudo,email], mdp>
-	 * @return
-	 * @throws DALException
-	 */
-	Map<String[], String> selectAllPseudoEmail() throws DALException;
-
-	
-	/**
-	 * Retourne un objet utilisateur en fonction de son email
-	 * @param email
-	 * @return
-	 */
-	public Utilisateur selectByEmail(String email) throws DALException;
+	Utilisateur connectionCompteUtilisateur(String eMailPseudo, String password) throws DALException;
 	
 }
